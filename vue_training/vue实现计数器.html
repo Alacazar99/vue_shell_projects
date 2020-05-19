@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>vue 计数器</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="input-num">
+            <button @click='sub'>-</button>
+            <span>{{num}}</span>
+            <button @click='add'>+</button>
+        </div>
+        <br>
+        <div>
+            {{message}}
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                num:1,
+                message: '页面加载于 ' + new Date().toLocaleString()
+            },
+            methods:{
+                add:function(){
+                    if(this.num <99){
+                        this.num ++;
+                    }else{
+                        alert('别点了');
+                    }
+                   
+                },
+                sub:function(){
+                   if(this.num > 0){
+                       this.num--;
+                   }else{
+                       alert('到0 啦，不能再小了')
+                   }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

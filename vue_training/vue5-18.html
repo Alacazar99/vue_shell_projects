@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="app">{{movies}}
+		<!-- <div ></div> -->
+		<ul>
+			<li v-for='item in movies'>{{item}}</li>
+		</ul>
+		<span>
+			{{school.name}}
+			{{school.mobile}}
+		</span>
+		<div v-text='campus+"GG"'>
+		</div>
+		<h2 v-text=''>
+			{{info+"!!!"}}
+		</h2>
+	</div>
+	<div id="test">
+		<input type="button" value="事件绑定" v-on:click='doIt'>
+		<input type="button" value="@绑定"  @click='doIt'>
+		<h2 @click='chargeFood'>{{food}}</h2>
+	</div>
+	<script>
+		var tmp = ['星际穿越','','少年派','盗梦空间','大话西游'];
+		const app = new Vue({
+			el:'#app',
+			data:{
+				message:'你好~',
+				movies:tmp,
+				school:{
+					name:'alacazar',
+					mobile:'233-333-444'
+				},
+				campus:['北京'],
+				info:'King前端'
+			}
+		})
+		const test = new Vue({
+			el:"#test",
+			data:{
+				food:'红烧牛肉'
+			},
+			methods:{
+				doIt:function(){
+					alert(123);
+				},
+				chargeFood:function(){
+					this.food += " 好吃"
+				}
+			}
+		})
+	</script>
+</body>
+</html>

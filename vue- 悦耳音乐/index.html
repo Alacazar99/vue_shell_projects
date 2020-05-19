@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>悦耳音乐Player</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    
+</head>
+<body>
+    <div class="wrap" v-cloak>
+        <!-- 播放器主体 -->
+        <div class="play_wrap" id='player'>
+            <div class="search_bar">
+                <img src="" alt="">
+                <!-- 搜索歌曲 -->
+                <input type="text" v-model='query' @keyup.enter='searchMusic'>
+                <button @click='searchMusic'> 搜 索</button>
+            </div>
+            <div class="center_con">
+                <!-- 搜索列表 -->
+                <div class="song_wrapper">
+                    <ul class="song_list">
+                        <li  v-for="item in musiclist">
+                            <!-- <a href="javascript:;" ></a> -->
+                            <button @click='playMusic(item.id)'> 播放</button>
+                            <b @click='playMusic(item.id)'>{{item.name}}</b>
+                            <span v-if='item.mvid!=0'><button @click='playMv(item.mvid)'>MV</button></span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 歌曲背景容器 -->
+                <div class="player_com" :class='{palying:isPlaying}'>
+                    <img href='' class="play_bar">
+                    <img :src='musicCover' class="img-bg">
+                </div>
+                <!-- 评论区 -->
+                <div class="comment_wrapper">
+                    <h1 class="title">热门留言</h1>
+                    <div class="comment_list">
+                        <dl v-for='item in hotComments'>
+                            <dt><img :src="item.user.avatarUrl" alt=""></dt>
+                            <dd>{{item.user.nickname}}</dd>
+                            <p>{{item.content}}</p>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="audio_con">
+                <audio ref='audio' @play='play' @pause='pause' :src='musicurl' controls autoplay loop class="myaudio"></audio>
+            </div>
+
+            <video class="video_com" v-show='isShow'>
+                <video :src="mvUrl" controls='controls'></video>
+                <div class="mask" @click='hide'></div>
+            </video>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script src='vue.js'></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src='main.js'></script>
+</body>
+</html>
