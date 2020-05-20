@@ -13,14 +13,26 @@
         <!-- 播放器主体 -->
         <div class="play_wrap" id='player'>
             <div class="search_bar">
-                <img src="" alt="">
-                <!-- 搜索歌曲 -->
-                <input type="text" v-model='query' @keyup.enter='searchMusic'>
-                <button @click='searchMusic'> 搜 索</button>
+                <div class=" search-center">
+                    <div class="title">
+                        <span>悦耳音乐</span>
+                    </div>
+                    <img src="" alt="">
+                    <div class="datatime">
+                        <!-- 当前时间 -->
+                        <div></div>
+                    </div>
+                    <!-- 搜索歌曲 -->
+                    <div class="search-main">
+                        <input type="text" v-model='query' @keyup.enter='searchMusic' placeholder='搜索您想要的音乐'>
+                        <button @click='searchMusic'> 搜 索</button>
+                    </div>
+                </div>
             </div>
             <div class="center_con">
                 <!-- 搜索列表 -->
                 <div class="song_wrapper">
+                    <h1 class="title">歌曲列表</h1>
                     <ul class="song_list">
                         <li  v-for="item in musiclist">
                             <!-- <a href="javascript:;" ></a> -->
@@ -40,9 +52,9 @@
                     <h1 class="title">热门留言</h1>
                     <div class="comment_list">
                         <dl v-for='item in hotComments'>
-                            <dt><img :src="item.user.avatarUrl" alt=""></dt>
-                            <dd>{{item.user.nickname}}</dd>
-                            <p>{{item.content}}</p>
+                            <div class="itemimg"><img :src="item.user.avatarUrl" alt=""></div>
+                            <div class="itemtitle">{{item.user.nickname}}</div>
+                            <div class="itemcomment">{{item.content}}</div>
                         </dl>
                     </div>
                 </div>

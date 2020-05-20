@@ -1,23 +1,61 @@
 [v-cloak]{
     display: none;
 }
-.wrap{
-    
-}
-#player{
+.play_wrap{
+    width: 800px;
+    height: 600px;
+    /* background-color: #0080FF; */
+    background: repeating-radial-gradient(#005AB5, #00FFFF , #009393);
+    margin: auto;
 }
 .search_bar{
-    margin-top: 5px;
-    right: 100px;
+    margin: 3px;
+    width: 790px;
+    height: 50px;
     position: fixed;
+    /* border: 2px solid #009393; */
+    background-image: url("../img/1.jpg");
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px rgba(0,0,0,0.19);
+    z-index: 20;
 }
-.search_bar>input{
+.search_bar .search-center{
+    margin: 5px;
+}
+.search_bar .title{
+    float: left;
+    font-size: 25px;
+    margin-right: 20px;
+}
+.search_bar img{
+    display: run-in .6s;
+    float: left;
+    width: 180px;
+    height: 36px;
+}
+.search_bar .datatime{
+    float: left;
+    width: 180px;
+    height: 36px;
+    text-align: center;
+    font-size: 20px;
+    color: #000;
+}
+.search_bar .search_main{
+    width: 300px;
+    float: right;
+}
+.search-main input{
+    margin-left: 20px;
     width: 200px;
     height: 30px;
     outline: none;
-    border-radius: 5%;
+    border-radius: 6%;
+    /* 透明度 */
+    opacity: 0.7;   
 }
-.search_bar button{
+.search-main button{
+    float: right;
     border:2px solid #bcb;
     border-radius: 10%;
     outline: none;
@@ -29,34 +67,88 @@
     /* font-size: 30px; */
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
-/*  */
+
+.center_con{
+    position: relative;
+    top: 80px;
+    width: 800px;
+    height: 600px;
+}
 .song_wrapper{
     position: absolute;
     width: 30%;
     height: 400px;
-    top: 80px;
+    /* top: 80px; */
     float: left;
-    overflow: scroll;
-    background: repeating-linear-gradient(to bottom right, gray 5%, yellow 10%, green 15%);
+    /* overflow: scroll; */
+    /* background: repeating-linear-gradient(to bottom right, gray 5%, yellow 10%, green 15%); */
     list-style: none;
-    /* 透明度 */
-    opacity: 0.7;   
 }
+.song_wrapper h1{
+    /* background-color: #aaa; */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px rgba(0,0,0,0.19);
+    text-align: center;
+    font-size: 24px;
+    height: 40px;
+    text-shadow: 5px 3px 3px #eee;
+    margin-block-start: 0%;
+    margin-block-end: 0%;
+}
+/* 滚动条以及样式 */
 .song_list{
+    margin-left: 2px;
+    margin-top: 0;
     list-style: none;
+    padding: 0;
+    overflow: scroll;
+    height: 420px;
+}
+.song_list::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+    opacity: 0.1;
+}
+.song_list::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius   : 10px;
+    background-color: rgb(189, 47, 47);
+    background-image: -webkit-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        transparent 75%,
+        transparent
+    );
+}
+.song_list::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background   : #ffffff;
+    border-radius: 10px;
+    display: none;
 }
 .song_list>li{
+    padding-left: 3px;
     border-bottom: 2px solid #eee;
+    cursor: pointer;
 }
-
+.song_list>li span{
+    float: right;
+    margin-right: 3px;
+}
 .player_com{
     position: absolute;
+    top: 40px;
     left: 31%;
     width: 38%;
-    height: 400px;
-    top: 80px;
+    height: 360px;
+    /* top: 80px; */
     opacity: 0.8;
-    background: repeating-radial-gradient(#00FFBF, #04B4AE 3%, #BFFF00 15%);
+    /* background: repeating-radial-gradient(#00FFBF, #04B4AE 3%, #BFFF00 15%); */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow: hidden;
 }
@@ -67,7 +159,7 @@
     right: 0;
     top: 50%;
     /* line-height: 50%; */
-    width: 200px;
+    width: 150px;
     transform: translateY(-50%);
     border: none;
     background-position: center;
@@ -82,14 +174,15 @@
 .comment_wrapper{
     position: absolute;
     left: 70%;
-    top: 80px;
+    /* top: 80px; */
     width: 30%;
     height: 400px;
     /* background-color: #A9F5F2; */
 }
 /* 热门留言 */
 .comment_wrapper h1{
-    background-color: #aaa;
+    /* background-color: #aaa; */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px rgba(0,0,0,0.19);
     text-align: center;
     font-size: 24px;
     height: 40px;
@@ -97,31 +190,88 @@
     margin-block-start: 0%;
     margin-block-end: 0%;
 }
- .comment_list{
+
+ /* 滚动条以及样式 */
+.comment_list{
+    list-style: none;
+    padding: 0;
     overflow: scroll;
-    height: 380px;
- } 
- .comment_list dl>dt{
+    height: 420px;
+}
+.comment_list::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+    }
+.comment_list::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius   : 10px;
+    background-color: rgb(189, 47, 47);
+    background-image: -webkit-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        transparent 75%,
+        transparent
+    );
+}
+.comment_list::-webkit-scrollbar-track {
+    /* 滚动条里面轨道  display: none;  无滚动槽 滑动 */
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background   : #ededed;
+    border-radius: 10px;
+}
+.comment_list dl{
+    width: 240px;
+    height: 120px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+}
+/* 留言区设置样式 */
+ .comment_list dl .itemimg{
+     float: left;
      width: 60px;
      height: 60px;
      border-radius: 50%;
      background-color: red;
+     background-size: contain;
+     overflow: hidden;
      z-index: 100;
  }
- .comment_list dl>dd{
+ .comment_list dl .itemtitle{
      position: relative;
-     width: 80px;
-     height: 40px;
-     left: 60px;
-     background-color: salmon;
+     top: 30px;
+     width: 100%;
+     height: 30px;
+     font-weight: bold;
+     /* text-align: center; */
+     
+ }
+ .comment_list dl .itemcomment{
+    position: relative;
+     /* top: 60px; */
+     width: 228px;
+     height: 60px;
+     font-size: 14px;
+     text-overflow: ellipsis;
+     overflow: hidden;
  }
  .audio_con{
     position: absolute;
    background-color: #eee;
    top: 550px;
-   width: 100%;
+   width: 800px;
+   background-size: cover;
 } 
+.audio_con .myaudio{
+    width: 100%;
+    background-size: cover;
+}
 .video_com{
+    display: none;
     position: fixed;
     top: 0px;
     right: 0px;
