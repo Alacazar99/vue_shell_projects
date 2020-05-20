@@ -60,7 +60,7 @@
                 </div>
             </div>
             <div class="audio_con">
-                <audio ref='audio' @play='play' @pause='pause' :src='musicurl' controls autoplay loop class="myaudio"></audio>
+                <audio ref='audio' @play='play' @pause='pause' :src='musicurl' controls autoplay muted buffered loop class="myaudio"></audio>
             </div>
 
             <video class="video_com" v-show='isShow'>

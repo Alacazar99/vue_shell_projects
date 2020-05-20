@@ -1,6 +1,12 @@
 [v-cloak]{
     display: none;
 }
+.wrap{
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+    background: repeating-radial-gradient(#005AB5, #FFFFB9, #00EC00);
+}
 .play_wrap{
     width: 800px;
     height: 600px;
@@ -12,7 +18,7 @@
     margin: 3px;
     width: 790px;
     height: 50px;
-    position: fixed;
+    position: absolute;
     /* border: 2px solid #009393; */
     background-image: url("../img/1.jpg");
     background-size: cover;
@@ -130,16 +136,26 @@
     background   : #ffffff;
     border-radius: 10px;
     display: none;
+    z-index: 99;
 }
 .song_list>li{
-    padding-left: 3px;
+    margin-left: 3px;
+    margin-right: 1px;
+    font-size: 0.8em;
     border-bottom: 2px solid #eee;
+    text-overflow: clip;
     cursor: pointer;
 }
 .song_list>li span{
     float: right;
-    margin-right: 3px;
+    margin-right: 1px;
 }
+.song_list>li >span button{
+    border-radius: 25%;
+    font-weight: bold;
+    outline: none;
+
+} 
 .player_com{
     position: absolute;
     top: 40px;
@@ -231,13 +247,13 @@
     border-bottom: 1px solid #eee;
 }
 /* 留言区设置样式 */
- .comment_list dl .itemimg{
+ .comment_list dl .itemimg img{
      float: left;
      width: 60px;
      height: 60px;
      border-radius: 50%;
      background-color: red;
-     background-size: contain;
+     background-size: 100%;
      overflow: hidden;
      z-index: 100;
  }
